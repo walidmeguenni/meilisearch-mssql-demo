@@ -1,0 +1,21 @@
+debug: true
+plugins:
+  - meilisync.plugin.Plugin
+progress:
+  type: file
+meilisearch:
+  api_url: http://host.docker.internal:7700/
+  # api_key: 'MEILISEARCH_API_KEY'
+  insert_size: 1000
+  insert_interval: 10
+source:
+  type: postgres
+  host: 192.168.0.171 # assuming your PostgreSQL server is running on the same machine as `meilisync`
+  port: 5432
+  database: omran
+  user: omran
+  password: omran
+sync:
+  - table: '"user"'
+    index: id
+    full: true

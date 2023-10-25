@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: cirrus-cad
+    environment:
+      POSTGRES_DB: omran
+      POSTGRES_USER: omran
+      POSTGRES_PASSWORD: omran
+    ports:
+      - "5432:5432"
