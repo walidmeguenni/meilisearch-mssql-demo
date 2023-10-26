@@ -4,11 +4,11 @@ export const meilisearchResolver = {
     Query: {
         meilisearch: async (_, args) => {
             try {
-                return  meilisearch(args)
+                const { word } = args
+                return await meilisearch(word)
             } catch (error) {
                console.log(error) 
             }
-            
         },
     }
 }

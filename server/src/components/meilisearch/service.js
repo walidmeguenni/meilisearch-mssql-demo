@@ -1,10 +1,9 @@
-export const meilisearch = (args) => {
+import meiliSearchClient from "./meiliSearchClient.js";
+
+export const meilisearch = async(args) => {
   try {
-    return [
-      {
-        test: "hello",
-      },
-    ];
+    const result = await meiliSearchClient.index('user').search(args)
+    return result.hits
   } catch (error) {
     console.log(error);
   }

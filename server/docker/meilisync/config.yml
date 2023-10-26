@@ -10,12 +10,15 @@ meilisearch:
   insert_interval: 10
 source:
   type: postgres
-  host: 192.168.0.171 # assuming your PostgreSQL server is running on the same machine as `meilisync`
+  host: 192.168.0.171
   port: 5432
   database: omran
   user: omran
   password: omran
 sync:
-  - table: '"user"'
-    index: id
+  - table: movies
+    index: movies
+    full: true
+  - table: user
+    index: user
     full: true

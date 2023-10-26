@@ -2,6 +2,9 @@ import gql from "graphql-tag";
 
 export const meilisearchTypeDefs = gql`
   type MeiliSearch {
-    test: String
+    id: Int
+    name: String
+    age: Int
+    email: String
   }
 `;
