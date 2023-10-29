@@ -3,9 +3,8 @@
 import { Input, Box } from "@chakra-ui/react";
 
 export const SearchBar = ({ onSearch, searchTerm, setSearchTerm }) => {
-
   const handleSearch = (e) => {
-    const term = e.target.value.trim();
+    const term = e.target.value;
     setSearchTerm(term);
     if (term !== "") {
       onSearch(term);
