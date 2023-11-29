@@ -11,6 +11,8 @@ export const meilisearchTypeDefs = gql`
     job: String
     salary: Int
     gender: String
+    product_name: String
+    price: Int
     createdAt: String
     updatedAt: String
   }

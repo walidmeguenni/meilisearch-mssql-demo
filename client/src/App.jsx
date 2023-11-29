@@ -34,6 +34,8 @@ const App = () => {
                 <Th>Job</Th>
                 <Th>Salary</Th>
                 <Th>Gender</Th>
+                <Th>Product Name</Th>
+                <Th>Price</Th>
                 <Th>Created At</Th>
                 <Th>Updated At</Th>
               </Tr>

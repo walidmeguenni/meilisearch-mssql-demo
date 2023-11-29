@@ -12,6 +12,8 @@ export const MEILISEARCH = gql`
       job
       salary
       gender
+      product_name
+      price
       createdAt
       updatedAt
     }
