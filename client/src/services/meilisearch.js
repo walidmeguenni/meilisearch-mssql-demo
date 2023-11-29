@@ -4,9 +4,16 @@ export const MEILISEARCH = gql`
   query Query($word: String) {
     meilisearch(word: $word) {
       id
-      name
+      firstname
+      lastname
       age
       email
+      phone
+      job
+      salary
+      gender
+      createdAt
+      updatedAt
     }
   }
 `;

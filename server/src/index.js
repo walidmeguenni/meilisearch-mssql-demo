@@ -4,6 +4,7 @@ import { resolvers, typeDefs } from "./components/index.js";
 import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
 import dotenv from "dotenv";
 import http from "http";
+import { startCDC } from "./components/meilisearch/cdc.js";
 
 
 
@@ -27,8 +28,9 @@ async function startApolloServer() {
 
 
   await new Promise((resolve) => httpServer.listen({ port }, resolve));
-  console.log(`Server ready at http://localhost:${port}`);
+  console.log(`Server ready at http://localhost:${port}/graphql`);
 }
 
 
 startApolloServer()
+startCDC()

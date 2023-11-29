@@ -26,17 +26,32 @@ const App = () => {
           <Table variant="simple">
             <Thead>
               <Tr>
-                <Th>Name</Th>
+                <Th>First Name</Th>
+                <Th>Last Name</Th>
                 <Th>Age</Th>
                 <Th>Email</Th>
+                <Th>Phone</Th>
+                <Th>Job</Th>
+                <Th>Salary</Th>
+                <Th>Gender</Th>
+                <Th>Created At</Th>
+                <Th>Updated At</Th>
               </Tr>
             </Thead>
             <Tbody>
               {data.meilisearch.map((result) => (
                 <Tr key={result.id}>
-                  <Td>{result.name}</Td>
+                  <Td>{result.firstname}</Td>
+                  <Td>{result.lastname}</Td>
                   <Td>{result.age}</Td>
                   <Td>{result.email}</Td>
+                  <Td>{result.phone}</Td>
+                  <Td>{result.job}</Td>
+                  <Td>{result.salary}</Td>
+                  <Td>{result.gender}</Td>
+                  <Td>{result.createdAt}</Td>
+                  <Td>{result.updatedAt}</Td>
+
                 </Tr>
               ))}
             </Tbody>

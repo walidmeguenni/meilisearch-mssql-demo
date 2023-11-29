@@ -6,9 +6,7 @@ export const SearchBar = ({ onSearch, searchTerm, setSearchTerm }) => {
   const handleSearch = (e) => {
     const term = e.target.value;
     setSearchTerm(term);
-    if (term !== "") {
       onSearch(term);
-    }
   };
 
   return (
