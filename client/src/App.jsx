@@ -51,6 +51,8 @@ const App = () => {
                   <Td>{result.job}</Td>
                   <Td>{result.salary}</Td>
                   <Td>{result.gender}</Td>
+                  <Td>{result.product_name}</Td>
+                  <Td>{result.price}</Td>
                   <Td>{result.createdAt}</Td>
                   <Td>{result.updatedAt}</Td>
 

@@ -14,7 +14,6 @@ export const SearchBar = ({ onSearch, searchTerm, setSearchTerm }) => {
       <Input
         type="text"
         placeholder="Search..."
-        c
         value={searchTerm}
         onChange={(e) => handleSearch(e)}
       />
