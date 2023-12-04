@@ -1,0 +1,39 @@
+To Do List:
+    1- server 
+        - chocie  tables (09 tables) [done]
+            1 Responses [done]
+            2 ProcessTimes [1] [done]
+            3 ResourcesAssigned [1] [done]
+            8 Call [1]  [done]
+            9 Comment [1]
+        - define relaionnelle betwenn tables [done]
+        - create schema of tables melisearch [done]
+        - connect tables to melisearch
+        - ensure real time for each table:
+            - add
+            - update
+            - delete
+        - build categories services
+    2- client 
+        - build categories ui
+        - api intgration
+
+[
+    {
+        oid
+        ...
+        Agent:[{
+
+        }],
+        Call:[
+            {
+
+            }
+        ],
+        comment: [
+            {
+
+            }
+        ],
+   }
+]
