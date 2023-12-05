@@ -1,11 +1,19 @@
 version: '3'
 services:
   meilisearch:
-    image: getmeili/meilisearch:v1.4
-    container_name: cirrus-Cad-meilisearch
+    image: getmeili/meilisearch:v1.5.0
+    container_name: meilisearch-cirrus-cad
     ports:
       - "7700:7700"
     environment:
       - MEILI_ENV=${MEILI_ENV}
+      - MEILI_LOG_LEVEL=${MEILI_LOG_LEVEL}
+      - MEILI_TIMEOUT=${MEILI_TIMEOUT}
+    networks:
+      - meilisearch
     volumes:
-      - ./meili_data:/data.ms
+      - C:\Users\walid\OneDrive\Desktop\meili-search-demo\server\docker\meilisearch\meili_data:/data.ms
+    restart: unless-stopped
+networks:
+  meilisearch:
+    driver: bridge

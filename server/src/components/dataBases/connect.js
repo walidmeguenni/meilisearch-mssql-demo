@@ -7,6 +7,7 @@ const config = {
   options: {
     encrypt: false,
     trustServerCertificate: true,
+    requestTimeout: 6000000,
   },
 };
 

@@ -1,11 +1,11 @@
 To Do List:
     1- server 
-        - chocie  tables (09 tables) [done]
+        - chocie  tables (05 tables) [done] 1.7m
             1 Responses [done]
             2 ProcessTimes [1] [done]
             3 ResourcesAssigned [1] [done]
-            8 Call [1]  [done]
-            9 Comment [1]
+            4 Call [1]  [done]
+            5 Comment [1]
         - define relaionnelle betwenn tables [done]
         - create schema of tables melisearch [done]
         - connect tables to melisearch
@@ -35,5 +35,5 @@ To Do List:
 
             }
         ],
-   }
+    }
 ]

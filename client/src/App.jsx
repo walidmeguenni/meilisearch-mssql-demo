@@ -4,12 +4,14 @@ import { Box, Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
 import { SearchBar } from "./components/SearchBar";
 import { MEILISEARCH } from "./services/meilisearch";
 import { useState } from "react";
+import CategoryCheckboxList from "./components/categories";
 
 const App = () => {
+  const [searchTerm, setSearchTerm] = useState();
+  const [selectedCategories, setSelectedCategories] = useState([]);
   const [search, { loading, data }] = useLazyQuery(MEILISEARCH, {
     fetchPolicy: "network-only",
   });
-  const [searchTerm, setSearchTerm] = useState();
   const handleSearch = (term) => {
     search({ variables: { word: term } });
   };
@@ -62,6 +64,7 @@ const App = () => {
           </Table>
         )}
       </Box>
+      <CategoryCheckboxList selectedCategories={selectedCategories} setSelectedCategories={setSelectedCategories}/>
     </Box>
   );
 };
