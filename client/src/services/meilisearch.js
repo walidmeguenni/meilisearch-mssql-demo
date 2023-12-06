@@ -1,21 +1,60 @@
 import { gql } from "graphql-tag";
 
 export const MEILISEARCH = gql`
-  query Query($word: String) {
-    meilisearch(word: $word) {
+  query Query($word: String, $categories: [String]) {
+    meilisearch(word: $word, categories: $categories) {
       id
-      firstname
-      lastname
-      age
-      email
-      phone
-      job
-      salary
-      gender
-      product_name
-      price
-      createdAt
-      updatedAt
+      SequenceNumber
+      Type
+      Priority
+      HandlingResource
+      Zone
+      AgencyName
+      DispatchGroup
+      IncidentNumber
+      PrimaryResponse
+      CreationDate
+      ClassificationName
+      DispatcherDisplayName
+      DispatcherLogonName
+      CreationTime
+      StatusTime
+      IncidentCreationTime
+      ResponseLocation
+      RespAlarmLevel
+      PrimaryResource
+      MilestoneName
+      OriginName
+      PersonCount
+      Status
+      ImportDateTime
+      ResponseTypeCategory
+      Dispatch
+      Disposition
+      Completion
+      IsPrimaryUnit
+      ResourceName
+      ResourceDescription
+      StationName
+      XCoordinate
+      YCoordinate
+      AssignOdometerOut
+      CallerName
+      PhoneNumber
+      PhoneNumberExt
+      FreeFormatAddress
+      ESN
+      Near
+      Age
+      IsPhoneOwner
+      Gender
+      SIN
+      TimeStamp1
+      Info
+      AgentName
+      AgentDisplayName
+      Workstation
+      CommentTypeOID
     }
   }
 `;

@@ -14,7 +14,6 @@ const config = {
 export const queryDB = async () => {
   try {
     const pool = await sql.connect(config);
-    console.log('conect to db')
     return pool;
   } catch (err) {
     console.log(err);

@@ -4,7 +4,7 @@ import { resolvers, typeDefs } from "./components/index.js";
 import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
 import dotenv from "dotenv";
 import http from "http";
-import { startCDC } from "./components/meilisearch/cdc.js";
+// import { startCDC } from "./components/meilisearch/cdc.js";
 
 
 
@@ -33,4 +33,4 @@ async function startApolloServer() {
 
 
 startApolloServer()
-startCDC()
+// startCDC()

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const categories = ['All', 'Responses', 'ProcessTimes', 'ResourcesAssigned', 'Call', 'Comment'];
 
-const CategoryCheckboxList = ({selectedCategories, setSelectedCategories }) => {
+const CategoryCheckboxList = ({ selectedCategories, setSelectedCategories , onSearch }) => {
 
   const handleCategoryChange = (category) => {
     let updatedCategories;
@@ -17,9 +17,11 @@ const CategoryCheckboxList = ({selectedCategories, setSelectedCategories }) => {
       updatedCategories = updatedCategories.filter((item) => item !== 'All');
     }
     setSelectedCategories(updatedCategories);
+    onSearch();
   };
+  console.log(selectedCategories)
   return (
-    <Box display={'flex'} justifyContent={'center'}>
+    <Box display={'flex'} justifyContent={'center'} mt={12} mb={16}>
       <HStack spacing={16}>
         <Checkbox
           key="All"
@@ -47,6 +49,7 @@ const CategoryCheckboxList = ({selectedCategories, setSelectedCategories }) => {
 CategoryCheckboxList.propTypes = {
     selectedCategories: PropTypes.array.isRequired,
     setSelectedCategories: PropTypes.func.isRequired,
+    onSearch:PropTypes.func.isRequired,
   };
   
 export default CategoryCheckboxList;

@@ -23,7 +23,6 @@ const Interval_cdc = setInterval(async () => {
       await pool.request().query(CustomQuery + perv_index)
     ).recordset;
     await meiliSearchClient.index("Adhoc").addDocuments(result);
-    console.log(" new data added to users index", Date.now());
     perv_index = current_index;
   }
 }, 1000);

@@ -5,6 +5,7 @@ import { SearchBar } from "./components/SearchBar";
 import { MEILISEARCH } from "./services/meilisearch";
 import { useState } from "react";
 import CategoryCheckboxList from "./components/categories";
+import { headers } from "./constants";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState();
@@ -12,59 +13,45 @@ const App = () => {
   const [search, { loading, data }] = useLazyQuery(MEILISEARCH, {
     fetchPolicy: "network-only",
   });
-  const handleSearch = (term) => {
-    search({ variables: { word: term } });
+  const handleSearch = () => {
+    search({ variables: { word: searchTerm, categories: selectedCategories } });
   };
+  console.log()
   return (
-    <Box>
+    <Box width={"full"}>
       <SearchBar
         onSearch={handleSearch}
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
       />
+      <CategoryCheckboxList
+        selectedCategories={selectedCategories}
+        setSelectedCategories={setSelectedCategories}
+        onSearch={handleSearch}
+      />
       {loading && <p>Loading...</p>}
-      <Box p={6}>
-        {data && searchTerm  && (
-          <Table variant="simple">
+      <Box p={8} width="100%" height="500" overflow="auto">
+        {data && searchTerm && (
+          <Table variant="striped">
             <Thead>
               <Tr>
-                <Th>First Name</Th>
-                <Th>Last Name</Th>
-                <Th>Age</Th>
-                <Th>Email</Th>
-                <Th>Phone</Th>
-                <Th>Job</Th>
-                <Th>Salary</Th>
-                <Th>Gender</Th>
-                <Th>Product Name</Th>
-                <Th>Price</Th>
-                <Th>Created At</Th>
-                <Th>Updated At</Th>
+                {headers.map((header, index) => (
+                  <Th key={index}>{header}</Th>
+                ))}
               </Tr>
             </Thead>
             <Tbody>
-              {data.meilisearch.map((result) => (
-                <Tr key={result.id}>
-                  <Td>{result.firstname}</Td>
-                  <Td>{result.lastname}</Td>
-                  <Td>{result.age}</Td>
-                  <Td>{result.email}</Td>
-                  <Td>{result.phone}</Td>
-                  <Td>{result.job}</Td>
-                  <Td>{result.salary}</Td>
-                  <Td>{result.gender}</Td>
-                  <Td>{result.product_name}</Td>
-                  <Td>{result.price}</Td>
-                  <Td>{result.createdAt}</Td>
-                  <Td>{result.updatedAt}</Td>
-
+              {data.meilisearch.map((row, rowIndex) => (
+                <Tr key={rowIndex}>
+                  {headers.map((header, colIndex) => (
+                    <Td key={colIndex}>{row[header]}</Td>
+                  ))}
                 </Tr>
               ))}
             </Tbody>
           </Table>
         )}
       </Box>
-      <CategoryCheckboxList selectedCategories={selectedCategories} setSelectedCategories={setSelectedCategories}/>
     </Box>
   );
 };
