@@ -3,8 +3,6 @@ import meiliSearchClient from "./meiliSearchClient.js";
 
 export const meilisearch = async (args, categories) => {
   try {
-    console.log("args", args)
-    console.log("categories", categories)
     let selectedAttributes = [];
     let result = [];
     if (categories.length === 0) {

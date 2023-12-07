@@ -9,14 +9,15 @@ import { headers } from "./constants";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState();
-  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([ 'Responses', 'ProcessTimes', 'ResourcesAssigned', 'Call', 'Comment']);
   const [search, { loading, data }] = useLazyQuery(MEILISEARCH, {
     fetchPolicy: "network-only",
   });
-  const handleSearch = () => {
-    search({ variables: { word: searchTerm, categories: selectedCategories } });
+  const handleSearch = (updatedCategories =selectedCategories ) => {
+    console.log(selectedCategories)
+    search({ variables: { word: searchTerm, categories: updatedCategories } });
   };
-  console.log()
+  // console.log(data?.meilisearch)
   return (
     <Box width={"full"}>
       <SearchBar

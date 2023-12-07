@@ -16,10 +16,11 @@ const CategoryCheckboxList = ({ selectedCategories, setSelectedCategories , onSe
         : [...selectedCategories, category];
       updatedCategories = updatedCategories.filter((item) => item !== 'All');
     }
+    // console.log(updatedCategories)
     setSelectedCategories(updatedCategories);
-    onSearch();
+    onSearch(updatedCategories);
   };
-  console.log(selectedCategories)
+  // console.log(selectedCategories)
   return (
     <Box display={'flex'} justifyContent={'center'} mt={12} mb={16}>
       <HStack spacing={16}>

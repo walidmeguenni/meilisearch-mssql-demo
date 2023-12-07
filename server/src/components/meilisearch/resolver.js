@@ -4,6 +4,7 @@ export const meilisearchResolver = {
     Query: {
         meilisearch: async (_, args) => {
             try {
+                console.log(args)
                 const { word, categories } = args
                 return await meilisearch(word, categories)
             } catch (error) {

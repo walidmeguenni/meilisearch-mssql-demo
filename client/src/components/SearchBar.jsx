@@ -8,12 +8,6 @@ export const SearchBar = ({ onSearch, searchTerm, setSearchTerm }) => {
     setSearchTerm(term);
     onSearch();
   };
-  const handlePaste = (e) => {
-    const term = e.clipboardData.getData("text");
-    setSearchTerm(term);
-    onSearch();
-  };
-
   return (
     <Box p={4} display="flex">
       <Input
@@ -21,7 +15,6 @@ export const SearchBar = ({ onSearch, searchTerm, setSearchTerm }) => {
         placeholder="Search..."
         value={searchTerm}
         onChange={(e) => handleSearch(e)}
-        onPaste={(e) => handlePaste(e)}
       />
     </Box>
   );
